@@ -8,6 +8,7 @@ class PostsController < ApplicationController
 
   def show
     @comments = @post.comments
+    @random_post = Post.where.not(id: @post).order("RANDOM()").first
   end
 
   def new
